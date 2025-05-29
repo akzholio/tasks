@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "tasks"
+version = "0.1.0"
+description = "Async FastAPI Task Management API"
+authors = ["Akzhol Imangaliyev <akzhol.im@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "app" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.115.12"
+sqlalchemy = { version = "^2.0.41", extras = ["asyncio"] }
+asyncpg = "^0.30.0"
+alembic = "^1.12.1"
+pydantic = "^2.6.4"
+httpx = "^0.28.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.0"
+pytest-asyncio = "^0.23.6"
+black = "^24.4.2"
+isort = "^5.13.2"
+ruff = "^0.4.4"
+uvicorn = { version = "^0.29.0", extras = ["standard"] }
+aiosqlite = "^0.21.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
