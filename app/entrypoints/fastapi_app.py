@@ -34,6 +34,11 @@ def get_service(session: AsyncSession = Depends(get_session)):
     return TaskService(repo)
 
 
+@app.get("/healthcheck", status_code=200)
+async def healthcheck():
+    return {"status": "ok"}
+
+
 # POST /tasks
 @app.post("/tasks", response_model=TaskRead, status_code=201)
 async def create_task(task: TaskCreate, service: TaskService = Depends(get_service)):
